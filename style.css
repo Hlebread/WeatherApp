@@ -101,6 +101,11 @@ main {
 	display: flex;
 	background: var(--side-field);
 }
+
+
+/* 
+	*Side panel
+*/
 .side-field .current-weather {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -116,7 +121,6 @@ main {
 		'search   search '
 		'icon 	 icon   '
 		'temp temp'
-		/* 'date 	 time' */
 		'break break'
 		'detail-1 detail-1'
 		'detail-2 detail-2'
@@ -126,13 +130,10 @@ main {
 	row-gap: 15px;
 	justify-items: center;
 	align-items: start;
-
-	/* display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: stretch; */
 }
 
+
+/* Search block */
 .side-field .current-weather .search-places {
 	grid-area: search;
 	display: flex;
@@ -178,12 +179,14 @@ main {
 }
 
 
+/* Weather icon */
 .side-field .current-weather .weather-icon {
 	grid-area: icon;
 	text-align: center;
 }
 
 
+/* Temperature and Feels like temperature */
 .side-field .current-weather .temp-container {
 	grid-area: temp;
 }
@@ -208,6 +211,7 @@ main {
 }
 
 
+/* Break line */
 .side-field .current-weather hr {
 	width: 100%;
 	height: 2px;
@@ -217,6 +221,7 @@ main {
 }
 
 
+/* Details about weather, such as "Chance of rain" */
 .side-field .current-weather .detail {
 	justify-self: start;
 }
@@ -231,6 +236,7 @@ main {
 }
 
 
+/* Block with place, date and time */
 .side-field .current-weather .location {
 	grid-area: location;
 	width: 100%;
@@ -258,23 +264,9 @@ main {
 }
 
 
-
-.side-field .current-weather .weather-title {
-	grid-area: weather;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* 
+	*Main field base settings
+*/
 .main-field {
 	flex: 20 1 300px;
 	background: var(--main-field);
@@ -325,13 +317,16 @@ main {
 
 }
 
-
-
+/* 
+	*Main field when "Today" selected
+*/
+.main-field .today:not(.active) {
+	display: none;
+}
 .main-field .today {
 	flex: 1 1 100%;
 	margin-top: 40px;
 	margin-left: 15px;
-	/* outline: 1px solid #030014; */
 	display: grid;
 	gap: 15px;
 	grid-template-rows: 180px 230px auto auto;
@@ -343,11 +338,12 @@ main {
 	;
 	overflow-y: auto;
 }
+
+/* Week forecast preview */
 .main-field .today .week-preview {
 	grid-area: week;
 	display: flex;
 	justify-content: space-between;
-	/* flex-wrap: wrap; */
 	width: 100%;
 	overflow-x: auto;
 }
@@ -368,9 +364,7 @@ main {
 }
 
 
-.main-field .today .precipitation {
-
-}
+/* Precipitation card */
 .main-field .today .precipitation i {
 	background-color: #6a9cff;
 }
@@ -405,6 +399,7 @@ main {
 }
 
 
+/* Air quality index card */
 [data-aqi="good"]{
 	--aq-color: 66, 197, 146;
 }
@@ -502,6 +497,7 @@ main {
 }
 
 
+/* UV Index card */
 .main-field .today .uv-index {
 
 }
@@ -510,6 +506,7 @@ main {
 }
 
 
+/* Wind Status card */
 .main-field .today .wind {
 
 }
@@ -568,6 +565,7 @@ main {
 }
 
 
+/* Sunrise and sunset card */
 .main-field .today .sunrise {
 
 }
@@ -575,7 +573,7 @@ main {
 	color: #0b0c17;
 }
 
-
+/* For medium+ screen */
 @media all and (max-width: 1500px){
 	.main-field .today {
 		grid-template-rows: 180px 230px 250px 330px;
@@ -588,6 +586,8 @@ main {
 		;
 	}
 }
+
+/* For medium screen */
 @media all and (max-width: 1165px){
 	.app {
 		width: 100%;
@@ -671,6 +671,8 @@ main {
 		margin: 15px 0;
 	}
 }
+
+/* For mobile screen */
 @media all and (max-width: 535px){
 	.app {
 		padding-top: 50px;
