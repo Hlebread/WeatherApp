@@ -1,3 +1,6 @@
+/* 
+*	All basic settings for the whole app
+*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 * {
 	font-family: 'Roboto', sans-serif;
@@ -8,13 +11,13 @@
 	box-sizing: border-box;
 	scrollbar-width: thin;
 }
+/* Scrollbar */
 ::-webkit-scrollbar {
 	width: 3px;
 	background-color: var(--side-field);
 	scrollbar-width: thin;
 	display: none;
 }
-/* ползунок скроллбара */
 ::-webkit-scrollbar-thumb {
 	border-radius: 9em;
 	box-shadow: inset 1px 1px 10px #f3faf7;
@@ -29,6 +32,10 @@ body {
 	--break-line: #f1f1f1;
 	--font-main: #1a1a1a;
 	--font-sec: #c5c5c5;
+
+	--cloud: #909cac;
+	--umbrella: #025393;
+	--wind: #5a7702;
 }
 [data-theme="dark"] {
 	/* --theme-color: #0f3057;
@@ -53,8 +60,15 @@ body {
 	50%{transform: scale(1.3);}	
 	100%{transform: scale(1);}	
 }
+@keyframes radiation {
+	50%{box-shadow: 0 0 10px #f0cc3c;}
+}
 
-/* Container of whole app */
+
+/* 
+	*Container of whole app
+	*Main elements, etc.
+*/
 .root {
 	width: 100%;
 	min-height: 100vh;
@@ -74,12 +88,120 @@ body {
 	overflow: hidden;
 	position: relative;
 }
+
+
 nav {
 	position: absolute;
-	top: 50px;
+	top: 100px;
 	right: 50px;
-	font-size: 30px;
+	font-size: 18px;
+	z-index: 10000;
 }
+nav .menu-toggle {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	/* background-color: #1ef0a0; */
+	/* box-shadow: 4px 4px 2px 1px rgba(0, 0, 0, 0.2); */
+	position: absolute;
+	z-index: 5;
+	bottom: 0;
+	right: 0;
+	display: table;
+	text-align: center;
+	cursor: pointer;
+}
+nav .menu-toggle .fa {
+	font-size: 2em;
+	display: table-cell;
+	vertical-align: middle;
+	transition: 0.4s;
+}
+nav.open .menu-toggle .burger {
+	display: none;
+}
+nav:not(.open) .menu-toggle .burger-close {
+	display: none;
+}
+nav .btn-app {
+	width: 2.5em;
+	height: 2.5em;
+	border-radius: 50%;
+	position: absolute;
+	background-color: #4644fd;
+	color: #fff;
+	text-align: center;
+	opacity: 0;
+}
+nav .btn-app .fa {
+	line-height: 2.5em;
+}
+nav.open .btn-app {
+	opacity: 1;
+	box-shadow: 4px 4px 2px 1px rgba(0, 0, 0, 0.2);
+}
+nav .menu-round {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	z-index: 3;
+}
+nav .menu-round .btn-app {
+	top: -3em;
+	right: 1em;
+	transition: 0.4s;
+}
+nav.open .menu-round .btn-app:nth-of-type(1) {
+	right: 4.5em;
+	top: -5em;
+	transition-delay: 0.1s;
+}
+nav.open .menu-round .btn-app:nth-of-type(2) {
+	right: 4.25em;
+	top: -1em;
+}
+nav.open .menu-round .btn-app:nth-of-type(3) {
+	right: 0.8em;
+	top: 1.25em;
+	transition-delay: 0.2s;
+}
+nav .menu-line {
+	position: absolute;
+	z-index: 2;
+	/* display: none; */
+}
+nav .menu-line .btn-app {
+	top: -3em;
+	right: 0.8em;
+	transition: 0.3s;
+	transition-delay: 0.5s;
+}
+/* nav.open .menu-line .btn-app:nth-of-type(1) {
+	bottom: 4.25em;
+} */
+nav.open .menu-line .btn-app:nth-of-type(1) {
+	top: 4.25em;
+}
+nav.open .menu-line .btn-app:nth-of-type(2) {
+	top: 7.25em;
+}
+nav.open .menu-line .btn-app:nth-of-type(3) {
+	top: 10.25em;
+}
+nav.open .menu-line .btn-app:nth-of-type(4) {
+	top: 13.25em;
+}
+nav.open .menu-line .btn-app:nth-of-type(5) {
+	top: 16.25em;
+}
+nav.open .menu-line .btn-app:nth-of-type(6) {
+	top: 19.25em;
+}
+nav.open .menu-line .btn-app:nth-of-type(7) {
+	top: 22.25em;
+}
+
+
 img {
 	width: 60%;
 	/* height: 100px; */
@@ -157,6 +279,10 @@ main {
 	border-radius: 50%;
 	background: var(--main-field);
 	cursor: pointer;
+	transition: .3s;
+}
+.side-field .current-weather .search-places .fa-crosshairs:hover {
+	transform: scale(1.1);
 }
 .side-field .current-weather .search-places label i {
 	flex: 0 1 10%;
@@ -228,11 +354,20 @@ main {
 .side-field .current-weather .first-detail {
 	grid-area: detail-1;
 }
+.side-field .current-weather .first-detail i {
+	color: var(--cloud);
+}
 .side-field .current-weather .second-detail {
 	grid-area: detail-2;
 }
+.side-field .current-weather .second-detail i {
+	color: var(--umbrella);
+}
 .side-field .current-weather .third-detail {
 	grid-area: detail-3;
+}
+.side-field .current-weather .third-detail i {
+	color: var(--wind);
 }
 
 
@@ -279,6 +414,7 @@ main {
 }
 .main-field header div {
 	margin: 0 15px;
+	padding-bottom: 5px;
 	color: var(--font-sec);
 	border-bottom: 1px solid transparent;
 	cursor: pointer;
@@ -287,6 +423,13 @@ main {
 	color: var(--font-main);
 	border-color: var(--font-main);
 	font-weight: 500;
+}
+.main-field header div:not(.active):hover {
+	transition: .3s;
+	border-color: var(--font-sec);
+}
+.main-field header div:not(.active) i {
+	display: none;
 }
 .main-field .card {
 	background: #fff;
@@ -297,7 +440,7 @@ main {
 	justify-content: space-between;
 	align-items: flex-start;
 }
-.main-field .card i {
+.main-field .today .card i {
 	color: #fff;
 	width: 45px;
 	padding: 10px;
@@ -314,19 +457,25 @@ main {
 .main-field .card h3 i {
 	background: transparent !important;
 	border-radius: 5px;
-
 }
+.main-field .today:not(.active),
+.main-field .week:not(.active) {
+	display: none;
+}
+.main-field .today,
+.main-field .week,
+.main-field .month {
+	flex: 1 1 100%;
+	margin-top: 40px;
+	margin-left: 15px;
+	overflow-y: auto;
+}
+
 
 /* 
 	*Main field when "Today" selected
 */
-.main-field .today:not(.active) {
-	display: none;
-}
 .main-field .today {
-	flex: 1 1 100%;
-	margin-top: 40px;
-	margin-left: 15px;
 	display: grid;
 	gap: 15px;
 	grid-template-rows: 180px 230px auto auto;
@@ -336,8 +485,8 @@ main {
 								'.    .    .   '
 								'.		big  big '
 	;
-	overflow-y: auto;
 }
+
 
 /* Week forecast preview */
 .main-field .today .week-preview {
@@ -502,7 +651,12 @@ main {
 
 }
 .main-field .today .uv-index h3 i {
+	background: transparent;
+	border-radius: 50%;
 	color: #f0cb3c;
+}
+.main-field .today .uv-index:hover h3 i {
+	animation: radiation 4s ease-in-out infinite;
 }
 
 
@@ -573,6 +727,217 @@ main {
 	color: #0b0c17;
 }
 
+
+/* 
+	*Main field when "Week" selected 
+*/
+.main-field .week {
+	display: flex;
+	flex-direction: column;
+}
+.main-field .week .week-day:not(:last-child) {
+	margin-bottom: 20px;
+}
+.main-field .week .week-day {
+	cursor: pointer;
+}
+.main-field .week .week-day img {
+	width: 60px;
+}
+
+
+/* Header settings */
+.main-field .week .week-day .header {
+	width: 100%;
+}
+.main-field .week .week-day.open .header {
+	margin-bottom: 20px;
+	justify-content: space-between;
+}
+.main-field .week .week-day .header,
+.main-field .week .week-day .header .date,
+.main-field .week .week-day .header .forecast-preview {
+	display: flex;
+	align-items: center;
+}
+
+
+/* Date title */
+.main-field .week .week-day .header .date {
+	flex: 0 1 140px;
+}
+.main-field .week .week-day .header .date .day-of-the-month {
+	font-size: 50px;
+	font-weight: bold;
+}
+.main-field .week .week-day .header .date .description {
+	font-size: 15px;
+	color: var(--font-sec);
+}
+
+
+/* When card of a day is closed */
+.main-field .week .week-day.open .header .forecast-preview {
+	display: none;
+}
+.main-field .week .week-day .header .forecast-preview {
+	flex: 1 1 100px;
+	justify-content: space-between;
+}
+
+/* Temperature */
+.main-field .week .week-day .header .forecast-preview .temperature {
+	font-size: 40px;
+	font-weight: 300;
+}
+.main-field .week .week-day .header .forecast-preview .temperature span {
+	font-size: 20px;
+	vertical-align: super;
+}
+
+/* Icon */
+.main-field .week .week-day .header .forecast-preview .icon {
+	flex: 0 1 60px;
+}
+.main-field .week .week-day .header .forecast-preview .icon img {
+	
+}
+
+/* Humidity */
+.main-field .week .week-day .header .forecast-preview .humidity {
+	color: var(--umbrella);
+}
+
+/* Wind */
+.main-field .week .week-day .header .forecast-preview .wind {
+	color: var(--wind);
+}
+.main-field .week .week-day .header .forecast-preview .feels-like {
+	
+}
+
+/* Open/close button */
+.main-field .week .week-day .header .caret {
+	flex: 0 0 10px;
+	margin-left: 20px;
+	transition: .3s;
+}
+.main-field .week .week-day.open .header .caret {
+	transform: rotate(180deg);
+}
+
+
+/* When card of a day is open */
+.main-field .week .week-day:not(.open) .detailed-forecast {
+	display: none;
+}
+.main-field .week .week-day .detailed-forecast {
+	width: 100%;
+}
+.main-field .week .week-day .detailed-forecast .time-of-day:not(:last-child) {
+	margin-bottom: 35px;
+}
+.main-field .week .week-day .detailed-forecast .time-of-day {
+	display: grid;
+	gap: 20px;
+	grid-template-rows: 30px 70px 70px;
+	grid-template-areas: 
+								'time time     time	  '
+								'temp weather  humidity'
+								'wind pressure uv		  '
+	;
+}
+.main-field .week .week-day .detailed-forecast .time-of-day .title {
+	grid-area: time;
+	border-bottom: 2px solid var(--font-sec);
+}
+.main-field .week .week-day .detailed-forecast .time-of-day .detail {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-size: 30px;
+	font-weight: 500;
+}
+.main-field .week .week-day .detailed-forecast .time-of-day .detail h3 {
+	font-weight: 300;
+	margin-top: 10px;
+}
+.main-field .week .week-day .detailed-forecast .time-of-day .temperature {
+	grid-area: temp;
+}
+.main-field .week .week-day .detailed-forecast .time-of-day .temperature span {
+	font-size: 20px;
+	vertical-align: super;
+}
+.main-field .week .week-day .detailed-forecast .time-of-day .temperature .feels-like span {
+	font-size: 10px;
+}
+.main-field .week .week-day .detailed-forecast .time-of-day .icon {
+	grid-area: weather;
+}
+.main-field .week .week-day .detailed-forecast .time-of-day .humidity {
+	grid-area: humidity;
+}
+.main-field .week .week-day .detailed-forecast .time-of-day .wind {
+	grid-area: wind;
+}
+.main-field .week .week-day .detailed-forecast .time-of-day .atmosphere-pressure {
+	grid-area: pressure;
+}
+.main-field .week .week-day .detailed-forecast .time-of-day .uv-index {
+	grid-area: uv;
+}
+
+
+/* 
+	*Main field when "Month" selected 
+*/
+.main-field .month:not(.active) {
+	display: none;
+}
+.main-field .month {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+
+	position: relative;/* Delete after update */
+}
+
+@keyframes CS {
+	0%{transform: scale(0);}
+	100%{transform: scale(1);}
+}
+.main-field .month .CS {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.main-field .month .CS .overlay {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	opacity: 0.7;
+	background:	var(--main-field);
+}
+.main-field .month .CS h1 {
+	color: #fff;
+	font-size: 60px;
+	z-index: 1;
+	background: var(--umbrella);
+	padding: 30px;
+	border-radius: 20px;
+	border: 5px solid #afd275;
+}
+
+
+
 /* For medium+ screen */
 @media all and (max-width: 1500px){
 	.main-field .today {
@@ -597,7 +962,7 @@ main {
 		padding-top: 0px;
 	}
 	nav {
-		top: 50px;
+		top: 100px;
 		right: 2%;
 	}
 	main {
@@ -678,8 +1043,8 @@ main {
 		padding-top: 50px;
 	}
 	nav {
-		top: 10px;
-		right: 25px;
+		top: 115px;
+		right: 10px;
 	}
 	.side-field .current-weather {
 		grid-template-columns: 1fr;
@@ -700,7 +1065,7 @@ main {
 		;
 	}
 	.side-field .current-weather .search-places .fa-crosshairs {
-		margin-right: 0;
+		margin-right: 75px;
 	}
 	.side-field .current-weather .location {
 		margin: 15px 0;

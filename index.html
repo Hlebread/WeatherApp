@@ -7,133 +7,56 @@
 	<title>Document</title>
 	<script src="https://kit.fontawesome.com/6d2a8cf5cb.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="style.css" type="text/css">
-	<style>
-		/* body {
-		  background-color: #EDEDED;
-		}
-		.circular-menu {
-		  position: fixed;
-		  top: 1em;
-		  right: 1em;
-		}
-		
-		.circular-menu .floating-btn {
-		  display: block;
-		  width: 3.5em;
-		  height: 3.5em;
-		  border-radius: 50%;
-		  background-color: hsl(4, 98%, 60%);
-		  box-shadow: 0 2px 5px 0 hsla(0, 0%, 0%, .26);  
-		  color: hsl(0, 0%, 100%);
-		  text-align: center;
-		  line-height: 3.9;
-		  cursor: pointer;
-		  outline: 0;
-		}
-		
-		.circular-menu.active .floating-btn {
-		  box-shadow: inset 0 0 3px hsla(0, 0%, 0%, .3);
-		}
-		
-		.circular-menu .floating-btn:active {
-		  box-shadow: 0 4px 8px 0 hsla(0, 0%, 0%, .4);
-		}
-		
-		.circular-menu .floating-btn i {
-		  font-size: 1.3em;
-		  transition: transform .2s;  
-		}
-		
-		.circular-menu.active .floating-btn i {
-		  transform: rotate(-45deg);
-		}
-		
-		.circular-menu:after {
-		  display: block;
-		  content: ' ';
-		  width: 3.5em;
-		  height: 3.5em;
-		  border-radius: 50%;
-		  position: absolute;
-		  top: 0;
-		  right: 0;
-		  z-index: -2;
-		  background-color: hsl(4, 98%, 60%);
-		  transition: all .3s ease;
-		}
-		
-		.circular-menu.active:after {
-		  transform: scale3d(5.5, 5.5, 1);
-		  transition-timing-function: cubic-bezier(.68, 1.55, .265, 1);
-		}
-		
-		.circular-menu .items-wrapper {
-		  padding: 0;
-		  margin: 0;
-		}
-		
-		.circular-menu .menu-item {
-		  position: absolute;
-		  top: .2em;
-		  right: .2em;
-		  z-index: -1;
-		  display: block;
-		  text-decoration: none;
-		  color: hsl(0, 0%, 100%);
-		  font-size: 1em;
-		  width: 3em;
-		  height: 3em;
-		  border-radius: 50%;
-		  text-align: center;
-		  line-height: 3;
-		  background-color: hsla(0,0%,0%,.1);
-		  transition: transform .3s ease, background .2s ease;
-		}
-		
-		.circular-menu .menu-item:hover {
-		  background-color: hsla(0,0%,0%,.3);
-		}
-		
-		.circular-menu.active .menu-item {
-		  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-		}
-		
-		.circular-menu.active .menu-item:nth-child(1) {
-		  transform: translate3d(1em,-7em,0);
-		}
-		
-		.circular-menu.active .menu-item:nth-child(2) {
-		  transform: translate3d(-3.5em,-6.3em,0);
-		}
-		
-		.circular-menu.active .menu-item:nth-child(3) {
-		  transform: translate3d(-6.5em,-3.2em,0);
-		}
-		
-		.circular-menu.active .menu-item:nth-child(4) {
-		  transform: translate3d(-7em,1em,0);
-		} */
-
-
-
-
-
-
-
-
-
-
-	</style>
 </head>
 <body>
 	<div class="root">
 
 		<div class="app">
+			<div class="overlay"></div>
 			<nav>
-				<a class="floating-btn" onclick="document.getElementById('circularMenu1').classList.toggle('active');">
-					<i class="fa-solid fa-bars-staggered"></i>
-				</a>
+
+				<div class="menu-toggle open">
+					<span class="fa fa-solid fa-bars-staggered burger"></span>
+					<span class="fa fa-solid fa-xmark burger-close"></span>
+				</div>
+				
+				<div class="menu-round open">
+					<div class="btn-app">
+						<div class="fa fa-twitter"></div>
+					</div>
+					<div class="btn-app">
+						<div class="fa fa-facebook"></div>
+					</div>
+					<div class="btn-app">
+						<div class="fa fa- fa-wikipedia-w"></div>
+					</div>
+				</div>
+				
+				<div class="menu-line open">
+					<div class="btn-app">
+						<div class="fa fa-map-marker"></div>
+					</div>
+					<div class="btn-app">
+						<div class="fa fa-envelope"></div>
+					</div>
+					<div class="btn-app">
+						<div class="fa fa-video-camera"></div>
+					</div>
+					<div class="btn-app">
+						<div class="fa fa-soundcloud"></div>
+					</div>
+					<div class="btn-app">
+						<div class="fa fa-graduation-cap"></div>
+					</div>
+					<div class="btn-app">
+						<div class="fa fa-image"></div>
+					</div>
+					<div class="btn-app">
+						<div class="fa fa-vine"></div>
+					</div>
+				</div>
 			</nav>
+
 			<main>
 				<div class="side-field">
 
@@ -168,7 +91,7 @@
 						</div>
 						<div class="detail second-detail">
 							<i class="fa-solid fa-umbrella"></i>
-							<span>Chance of rain &mdash; 30%</span>
+							<span>Humidity &mdash; 30%</span>
 						</div>
 						<div class="detail third-detail">
 							<i class="fa-solid fa-wind"></i>
@@ -194,8 +117,9 @@
 				<div class="main-field">
 
 					<header>
-						<div class="today-switch active">Today</div>
-						<div class="week-switch">Week</div>
+						<div class="today-switch"><i class="fa-solid fa-calendar-day"></i> Today</div>
+						<div class="week-switch"><i class="fa-solid fa-calendar-week"></i> Week</div>
+						<div class="month-switch active"></i><i class="fa-solid fa-calendar"></i> Month</div>
 					</header>
 
 					<article class="today active">
@@ -349,8 +273,154 @@
 
 					<article class="week">
 
-						
+						<section class="week-day card">
+							<div class="header">
+								<div class="date">
+									<div class="day-of-the-month">23</div>
+									<div class="description">
+										<div class="month-name">August</div>
+										<div class="day-of-the-week">Today</div>
+									</div>
+								</div>
+								<div class="forecast-preview">
+									<div class="temperature">18<span>&deg;C</span></div>
+									<div class="icon">
+										<img src="12.png" alt="">
+									</div>
+									<div class="humidity"><i class="fa-solid fa-umbrella"></i>60%</div>
+									<div class="wind"><i class="fa-solid fa-wind"></i>60 m/s</div>
+									<div class="feels-like"><i class="fa-solid fa-temperature-three-quarters"></i>15C</div>
+								</div>
+								<i class="fa-solid fa-angle-down caret"></i>
+							</div>
+							<div class="detailed-forecast">
+								<div class="morning time-of-day">
+									<h3 class="title">Morning</h3>
+									<div class="temperature detail">
+										<div>
+											18<span>&deg;C</span>
+										</div>
+										<h3 class="feels-like"><i class="fa-solid fa-temperature-three-quarters"></i>15<span>&deg;C</span></h3>
+									</div>
+									<div class="icon detail">
+										<img src="12.png" alt="">
+										<h3 class="weather">Sunny</h3>
+									</div>
+									<div class="humidity detail">
+										60%
+										<h3><i class="fa-solid fa-droplet"></i>Humidity</h3>
+									</div>
+									<div class="wind detail">
+										100 km/h
+										<h3><i class="fa-solid fa-wind"></i> Wind</h3>
+									</div>
+									<div class="atmosphere-pressure detail">
+										1000 pms
+										<h3><i class="fa-solid fa-gauge-simple"></i> Atm. pressure</h3>
+									</div>
+									<div class="uv-index detail">
+										5
+										<h3><i class="fa-solid fa-radiation"></i> UV Index</h3>
+									</div>
+								</div>
+								<div class="day time-of-day">
+									<h3 class="title">Day</h3>
+									<div class="temperature detail">
+										<div>
+											18<span>&deg;C</span>
+										</div>
+										<h3 class="feels-like"><i class="fa-solid fa-temperature-three-quarters"></i>15<span>&deg;C</span></h3>
+									</div>
+									<div class="icon detail">
+										<img src="12.png" alt="">
+										<h3 class="weather">Sunny</h3>
+									</div>
+									<div class="humidity detail">
+										60%
+										<h3><i class="fa-solid fa-droplet"></i>Humidity</h3>
+									</div>
+									<div class="wind detail">
+										100 km/h
+										<h3><i class="fa-solid fa-wind"></i> Wind</h3>
+									</div>
+									<div class="atmosphere-pressure detail">
+										1000 pms
+										<h3><i class="fa-solid fa-gauge-simple"></i> Atm. pressure</h3>
+									</div>
+									<div class="uv-index detail">
+										5
+										<h3><i class="fa-solid fa-radiation"></i> UV Index</h3>
+									</div>
+								</div>
+								<div class="evening time-of-day">
+									<h3 class="title">Evening</h3>
+									<div class="temperature detail">
+										<div>
+											18<span>&deg;C</span>
+										</div>
+										<h3 class="feels-like"><i class="fa-solid fa-temperature-three-quarters"></i>15<span>&deg;C</span></h3>
+									</div>
+									<div class="icon detail">
+										<img src="12.png" alt="">
+										<h3 class="weather">Sunny</h3>
+									</div>
+									<div class="humidity detail">
+										60%
+										<h3><i class="fa-solid fa-droplet"></i>Humidity</h3>
+									</div>
+									<div class="wind detail">
+										100 km/h
+										<h3><i class="fa-solid fa-wind"></i> Wind</h3>
+									</div>
+									<div class="atmosphere-pressure detail">
+										1000 pms
+										<h3><i class="fa-solid fa-gauge-simple"></i> Atm. pressure</h3>
+									</div>
+									<div class="uv-index detail">
+										5
+										<h3><i class="fa-solid fa-radiation"></i> UV Index</h3>
+									</div>
+								</div>
+								<div class="night time-of-day">
+									<h3 class="title">Night</h3>
+									<div class="temperature detail">
+										<div>
+											18<span>&deg;C</span>
+										</div>
+										<h3 class="feels-like"><i class="fa-solid fa-temperature-three-quarters"></i>15<span>&deg;C</span></h3>
+									</div>
+									<div class="icon detail">
+										<img src="12.png" alt="">
+										<h3 class="weather">Sunny</h3>
+									</div>
+									<div class="humidity detail">
+										60%
+										<h3><i class="fa-solid fa-droplet"></i>Humidity</h3>
+									</div>
+									<div class="wind detail">
+										100 km/h
+										<h3><i class="fa-solid fa-wind"></i> Wind</h3>
+									</div>
+									<div class="atmosphere-pressure detail">
+										1000 pms
+										<h3><i class="fa-solid fa-gauge-simple"></i> Atm. pressure</h3>
+									</div>
+									<div class="uv-index detail">
+										5
+										<h3><i class="fa-solid fa-radiation"></i> UV Index</h3>
+									</div>
+								</div>
+							</div>
+						</section>
 
+					</article>
+
+					<article class="month">
+						<div>aaaaaaaaaaaaa</div>
+						<div class="CS">
+							<div class="overlay"></div>
+							<h1>Comming soon...&#128578;</h1>
+						</div>
 					</article>
 
 				</div>
@@ -371,7 +441,11 @@
 
 
 
-
+	<script>
+		document.querySelector('.menu-toggle').addEventListener('click', () => {
+			document.querySelector('nav').classList.toggle('open');
+		});
+	</script>
 
 
 
