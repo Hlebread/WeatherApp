@@ -21,39 +21,42 @@
 				</div>
 				
 				<div class="menu-round open">
-					<div class="btn-app">
-						<div class="fa fa-twitter"></div>
-					</div>
-					<div class="btn-app">
-						<div class="fa fa-facebook"></div>
-					</div>
-					<div class="btn-app">
-						<div class="fa fa- fa-wikipedia-w"></div>
-					</div>
+					<a href="#" class="btn-app">
+						<div class="fa fa-solid fa-house"></div>
+					</a>
+					<a href="#" class="btn-app">
+						<div class="fa fa-solid fa-heart"></div>
+					</a>
+					<a href="#" class="btn-app">
+						<div class="fa fa-solid fa-user"></div>
+					</a>
+					<a href="#" class="btn-app">
+						<div class="fa fa-solid fa-gear"></div>
+					</a>
 				</div>
 				
 				<div class="menu-line open">
-					<div class="btn-app">
-						<div class="fa fa-map-marker"></div>
+					<div class="btn-app financeApp">
+						<div class="fa fa-solid fa-coins"></div>
 					</div>
-					<div class="btn-app">
-						<div class="fa fa-envelope"></div>
+					<div class="btn-app taskApp">
+						<div class="fa fa-solid fa-list-check"></div>
 					</div>
-					<div class="btn-app">
-						<div class="fa fa-video-camera"></div>
+					<div class="btn-app linkedIn">
+						<div class="fa fa-brands fa-linkedin-in"></div>
 					</div>
-					<div class="btn-app">
-						<div class="fa fa-soundcloud"></div>
+					<div class="btn-app gitHub">
+						<div class="fa fa-brands fa-github"></div>
 					</div>
-					<div class="btn-app">
-						<div class="fa fa-graduation-cap"></div>
+					<div class="btn-app info">
+						<div class="fa fa-solid fa-info"></div>
 					</div>
-					<div class="btn-app">
+					<!-- <div class="btn-app">
 						<div class="fa fa-image"></div>
 					</div>
 					<div class="btn-app">
 						<div class="fa fa-vine"></div>
-					</div>
+					</div> -->
 				</div>
 			</nav>
 
@@ -418,7 +421,7 @@
 					<article class="month">
 						<div>aaaaaaaaaaaaa</div>
 						<div class="CS">
-							<div class="overlay"></div>
+							<div class="overlay-cs"></div>
 							<h1>Comming soon...&#128578;</h1>
 						</div>
 					</article>
@@ -433,10 +436,11 @@
 
 
 
-	
+
 	<script>
 		document.querySelector('.menu-toggle').addEventListener('click', () => {
 			document.querySelector('nav').classList.toggle('open');
+			document.querySelector('.overlay').classList.toggle('open');
 		});
 	</script>
 </body>

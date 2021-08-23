@@ -32,6 +32,7 @@ body {
 	--break-line: #f1f1f1;
 	--font-main: #1a1a1a;
 	--font-sec: #c5c5c5;
+	--navigation: #4644fd;
 
 	--cloud: #909cac;
 	--umbrella: #025393;
@@ -117,6 +118,12 @@ nav .menu-toggle .fa {
 	vertical-align: middle;
 	transition: 0.4s;
 }
+nav.open .menu-toggle {
+	border: 3px solid var(--navigation);
+}
+nav.open .menu-toggle .fa {
+	color: #fff;
+}
 nav.open .menu-toggle .burger {
 	display: none;
 }
@@ -128,10 +135,14 @@ nav .btn-app {
 	height: 2.5em;
 	border-radius: 50%;
 	position: absolute;
-	background-color: #4644fd;
+	background-color: var(--navigation);
 	color: #fff;
 	text-align: center;
 	opacity: 0;
+}
+nav .btn-app:hover {
+	transition-delay: 0s !important;
+	background: #025393;
 }
 nav .btn-app .fa {
 	line-height: 2.5em;
@@ -154,31 +165,35 @@ nav .menu-round .btn-app {
 nav.open .menu-round .btn-app:nth-of-type(1) {
 	right: 4.5em;
 	top: -5em;
-	transition-delay: 0.1s;
 }
 nav.open .menu-round .btn-app:nth-of-type(2) {
 	right: 4.25em;
-	top: -1em;
+	top: -2em;/* 1 */
+	transition-delay: 0.1s;
 }
 nav.open .menu-round .btn-app:nth-of-type(3) {
-	right: 0.8em;
-	top: 1.25em;
+	right: 1.75em;/* 0.45 */
+	top: .25em;/* 1.25 */
 	transition-delay: 0.2s;
+}
+nav.open .menu-round .btn-app:nth-of-type(4) {
+	right: -1.45em;
+	top: 1em;
+	transition-delay: 0.3s;
 }
 nav .menu-line {
 	position: absolute;
 	z-index: 2;
-	/* display: none; */
 }
 nav .menu-line .btn-app {
 	top: -3em;
-	right: 0.8em;
+	right: 0.45em;
 	transition: 0.3s;
-	transition-delay: 0.5s;
+	/* transition-delay: 0.4s; */
 }
-/* nav.open .menu-line .btn-app:nth-of-type(1) {
-	bottom: 4.25em;
-} */
+nav.open .menu-line .btn-app {
+	right: -1.45em;
+}
 nav.open .menu-line .btn-app:nth-of-type(1) {
 	top: 4.25em;
 }
@@ -200,6 +215,64 @@ nav.open .menu-line .btn-app:nth-of-type(6) {
 nav.open .menu-line .btn-app:nth-of-type(7) {
 	top: 22.25em;
 }
+nav.open .menu-line .btn-app::before {
+	width: 150px;
+	position: absolute;
+	top: 50%;
+	transform: translate(-120%, -50%);
+	background: var(--navigation);
+	padding: 10px 20px;
+	border-radius: 15px;
+	display: none;
+	font-weight: bold;
+}
+nav.open .menu-line .btn-app:hover::before {
+	display: block;
+}
+nav.open .menu-line .btn-app.financeApp {
+	background: #5a7702;
+}
+nav.open .menu-line .btn-app.financeApp::before {
+	content: 'Finance App';
+}
+nav.open .menu-line .btn-app.taskApp {
+	background: #5a7702;
+}
+nav.open .menu-line .btn-app.taskApp::before {
+	content: 'Task App';
+}
+nav.open .menu-line .btn-app.linkedIn {
+	background: #5a7702;
+}
+nav.open .menu-line .btn-app.linkedIn::before {
+	content: 'LinkedIn';
+}
+nav.open .menu-line .btn-app.gitHub {
+	background: #5a7702;
+}
+nav.open .menu-line .btn-app.gitHub::before {
+	content: 'GitHub';
+}
+nav.open .menu-line .btn-app.info {
+	background: #5a7702;
+}
+.overlay {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: #0300148a;
+	display: none;
+	z-index: 2;
+	transition: .5s;
+	opacity: 0;
+}
+.overlay.open {
+	display: block;
+	opacity: 1;
+}
+
 
 
 img {
@@ -919,7 +992,7 @@ main {
 	align-items: center;
 	justify-content: center;
 }
-.main-field .month .CS .overlay {
+.main-field .month .CS .overlay-cs {
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -954,6 +1027,20 @@ main {
 
 /* For medium screen */
 @media all and (max-width: 1165px){
+	nav.open .menu-round .btn-app:nth-of-type(1) {
+		right: 5.5em;
+	}
+	nav.open .menu-round .btn-app:nth-of-type(2) {
+		right: 5.25em;
+		top: -2em;
+	}
+	nav.open .menu-round .btn-app:nth-of-type(3) {
+		right: 2.75em;
+	}
+	nav.open .menu-round .btn-app:nth-of-type(4),
+	nav.open .menu-line .btn-app {
+		right: -0.45em;
+	}
 	.app {
 		width: 100%;
 		height:auto;
@@ -1045,6 +1132,19 @@ main {
 	nav {
 		top: 115px;
 		right: 10px;
+	}
+	nav.open .menu-round .btn-app:nth-of-type(1) {
+		right: 6.5em;
+	}
+	nav.open .menu-round .btn-app:nth-of-type(2) {
+		right: 6.25em;
+	}
+	nav.open .menu-round .btn-app:nth-of-type(3) {
+		right: 3.75em;
+	}
+	nav.open .menu-round .btn-app:nth-of-type(4),
+	nav.open .menu-line .btn-app {
+		right: 0.45em;
 	}
 	.side-field .current-weather {
 		grid-template-columns: 1fr;
