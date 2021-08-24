@@ -1076,6 +1076,9 @@ main {
 			'detail-3 detail-3'
 		;
 	}
+	.side-field .current-weather .search-places label input {
+		width: 100%;
+	}	/* !!!!! */
 	.side-field .current-weather .search-places .fa-crosshairs,
 	.side-field .current-weather .location {
 		margin-right: 10%;
@@ -1163,10 +1166,25 @@ main {
 			'detail-3'
 			'location'
 		;
+		position: relative;
 	}
+	/* .side-field .current-weather .search-places {
+		position: absolute;
+		top: -50px;
+		left: 0;
+	} */
 	.side-field .current-weather .search-places .fa-crosshairs {
-		margin-right: 75px;
+		margin-right: 0;
+		order: 1;
 	}
+	.side-field .current-weather .search-places label {
+		order: 2;
+	}
+	.side-field .current-weather .search-places label i {
+		display: none;
+	}
+
+
 	.side-field .current-weather .location {
 		margin: 15px 0;
 		padding: 10px 0;
