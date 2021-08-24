@@ -12,7 +12,9 @@
 	<div class="root">
 
 		<div class="app">
+
 			<div class="overlay"></div>
+
 			<nav>
 
 				<div class="menu-toggle open">
@@ -76,7 +78,7 @@
 						</div>
 
 						<div class="weather-icon">
-							<img src="./12.png" alt="">
+							<img src="./images/12.png" alt="">
 						</div>
 
 						<div class="temp-container">
@@ -118,51 +120,64 @@
 
 					</article>
 
+					<div class="settings-menu active ">
+						<h1><i class="fa-solid fa-gears"></i> Settings:</h1>
+						<h4>Here you can configure some of the features of the application's behavior.</h4>
+						<ul class="settings-list">
+							<li class="settings-list-item checked"><i class="fa-solid fa-user"></i> Profile</li>
+							<li class="settings-list-item"><i class="fa-solid fa-screwdriver-wrench"></i> General</li>
+							<li class="settings-list-item"><i class="fa-solid fa-umbrella"></i> Weather App</li>
+							<li class="settings-list-item"><i class="fa-solid fa-coins"></i> Finance App</li>
+							<li class="settings-list-item"><i class="fa-solid fa-list-check"></i> Task Manager</li>
+							<i class="fa-solid fa-caret-down caret"></i>
+						</ul>
+					</div>
+
 				</div>
 
 				<div class="main-field">
 
-					<header>
+					<header class="">
 						<div class="today-switch"><i class="fa-solid fa-calendar-day"></i> Today</div>
 						<div class="week-switch"><i class="fa-solid fa-calendar-week"></i> Week</div>
 						<div class="month-switch active"></i><i class="fa-solid fa-calendar"></i> Month</div>
 					</header>
 
-					<article class="today active">
+					<article class="today">
 						<section class="week-preview">
 							<div class="week-preview-card card">
 								<span>Sun</span>
-								<img src="./12.png" alt="">
+								<img src="././images/12.png" alt="">
 								<span>15&deg;C</span>
 							</div>
 							<div class="week-preview-card card">
 								<span>Sun</span>
-								<img src="./12.png" alt="">
+								<img src="././images/12.png" alt="">
 								<span>15&deg;C</span>
 							</div>
 							<div class="week-preview-card card">
 								<span>Sun</span>
-								<img src="./12.png" alt="">
+								<img src="././images/12.png" alt="">
 								<span>15&deg;C</span>
 							</div>
 							<div class="week-preview-card card">
 								<span>Sun</span>
-								<img src="./12.png" alt="">
+								<img src="././images/12.png" alt="">
 								<span>15&deg;C</span>
 							</div>
 							<div class="week-preview-card card">
 								<span>Sun</span>
-								<img src="./12.png" alt="">
+								<img src="././images/12.png" alt="">
 								<span>15&deg;C</span>
 							</div>
 							<div class="week-preview-card card">
 								<span>Sun</span>
-								<img src="./12.png" alt="">
+								<img src="././images/12.png" alt="">
 								<span>15&deg;C</span>
 							</div>
 							<div class="week-preview-card card">
 								<span>Sun</span>
-								<img src="./12.png" alt="">
+								<img src="././images/12.png" alt="">
 								<span>15&deg;C</span>
 							</div>
 						</section>
@@ -291,7 +306,7 @@
 								<div class="forecast-preview">
 									<div class="temperature">18<span>&deg;C</span></div>
 									<div class="icon">
-										<img src="12.png" alt="">
+										<img src="./images/12.png" alt="">
 									</div>
 									<div class="humidity"><i class="fa-solid fa-umbrella"></i>60%</div>
 									<div class="wind"><i class="fa-solid fa-wind"></i>60 m/s</div>
@@ -309,7 +324,7 @@
 										<h3 class="feels-like"><i class="fa-solid fa-temperature-three-quarters"></i>15<span>&deg;C</span></h3>
 									</div>
 									<div class="icon detail">
-										<img src="12.png" alt="">
+										<img src="./images/12.png" alt="">
 										<h3 class="weather">Sunny</h3>
 									</div>
 									<div class="humidity detail">
@@ -338,7 +353,7 @@
 										<h3 class="feels-like"><i class="fa-solid fa-temperature-three-quarters"></i>15<span>&deg;C</span></h3>
 									</div>
 									<div class="icon detail">
-										<img src="12.png" alt="">
+										<img src="./images/12.png" alt="">
 										<h3 class="weather">Sunny</h3>
 									</div>
 									<div class="humidity detail">
@@ -367,7 +382,7 @@
 										<h3 class="feels-like"><i class="fa-solid fa-temperature-three-quarters"></i>15<span>&deg;C</span></h3>
 									</div>
 									<div class="icon detail">
-										<img src="12.png" alt="">
+										<img src="./images/12.png" alt="">
 										<h3 class="weather">Sunny</h3>
 									</div>
 									<div class="humidity detail">
@@ -396,7 +411,7 @@
 										<h3 class="feels-like"><i class="fa-solid fa-temperature-three-quarters"></i>15<span>&deg;C</span></h3>
 									</div>
 									<div class="icon detail">
-										<img src="12.png" alt="">
+										<img src="./images/12.png" alt="">
 										<h3 class="weather">Sunny</h3>
 									</div>
 									<div class="humidity detail">
@@ -429,6 +444,142 @@
 						</div>
 					</article>
 
+					<article class="favorites">
+						<div class="favorites-card card">
+							<i class="fa-solid fa-xmark delete-btn"></i>
+							<div>
+								<div class="weather">18<span>&deg;C</span></div>
+								<img src="./images/12.png" alt="">
+							</div>
+							<div>
+								<div class="city">New-York</div>
+								<h3 class="country">USA</h3>
+							</div>
+							<div class="details">
+								<span><i class="fa-solid fa-droplet"></i> 60%</span>
+								<span><i class="fa-solid fa-wind"></i> 30 km/h</span>
+							</div>
+						</div>
+						<div class="favorites-card card">
+							<i class="fa-solid fa-xmark delete-btn"></i>
+							<div>
+								<div class="weather">18<span>&deg;C</span></div>
+								<img src="./images/12.png" alt="">
+							</div>
+							<div>
+								<div class="city">New-York</div>
+								<h3 class="country">USA</h3>
+							</div>
+							<div class="details">
+								<span><i class="fa-solid fa-droplet"></i> 60%</span>
+								<span><i class="fa-solid fa-wind"></i> 30 km/h</span>
+							</div>
+						</div>
+						<div class="favorites-card card">
+							<i class="fa-solid fa-xmark delete-btn"></i>
+							<div>
+								<div class="weather">18<span>&deg;C</span></div>
+								<img src="./images/12.png" alt="">
+							</div>
+							<div>
+								<div class="city">New-York</div>
+								<h3 class="country">USA</h3>
+							</div>
+							<div class="details">
+								<span><i class="fa-solid fa-droplet"></i> 60%</span>
+								<span><i class="fa-solid fa-wind"></i> 30 km/h</span>
+							</div>
+						</div>
+						<div class="favorites-card card">
+							<i class="fa-solid fa-xmark delete-btn"></i>
+							<div>
+								<div class="weather">18<span>&deg;C</span></div>
+								<img src="./images/12.png" alt="">
+							</div>
+							<div>
+								<div class="city">New-York</div>
+								<h3 class="country">USA</h3>
+							</div>
+							<div class="details">
+								<span><i class="fa-solid fa-droplet"></i> 60%</span>
+								<span><i class="fa-solid fa-wind"></i> 30 km/h</span>
+							</div>
+						</div>
+						<div class="favorites-card card">
+							<i class="fa-solid fa-xmark delete-btn"></i>
+							<div>
+								<div class="weather">18<span>&deg;C</span></div>
+								<img src="./images/12.png" alt="">
+							</div>
+							<div>
+								<div class="city">New-York</div>
+								<h3 class="country">USA</h3>
+							</div>
+							<div class="details">
+								<span><i class="fa-solid fa-droplet"></i> 60%</span>
+								<span><i class="fa-solid fa-wind"></i> 30 km/h</span>
+							</div>
+						</div>
+						<div class="favorites-card card">
+							<i class="fa-solid fa-xmark delete-btn"></i>
+							<div>
+								<div class="weather">18<span>&deg;C</span></div>
+								<img src="./images/12.png" alt="">
+							</div>
+							<div>
+								<div class="city">New-York</div>
+								<h3 class="country">USA</h3>
+							</div>
+							<div class="details">
+								<span><i class="fa-solid fa-droplet"></i> 60%</span>
+								<span><i class="fa-solid fa-wind"></i> 30 km/h</span>
+							</div>
+						</div>
+						<div class="favorites-card card">
+							<i class="fa-solid fa-xmark delete-btn"></i>
+							<div>
+								<div class="weather">18<span>&deg;C</span></div>
+								<img src="./images/12.png" alt="">
+							</div>
+							<div>
+								<div class="city">New-York</div>
+								<h3 class="country">USA</h3>
+							</div>
+							<div class="details">
+								<span><i class="fa-solid fa-droplet"></i> 60%</span>
+								<span><i class="fa-solid fa-wind"></i> 30 km/h</span>
+							</div>
+						</div>
+					</article>
+
+					<section class="settings">
+						<div class="profile settings-page">
+							<h3>Account and Security</h3>
+								<div class="user">
+									<img src="./ForCV.jpg" alt="">
+									<input type="text" placeholder="Username" value="Hlebread">
+									<i class="fa-solid fa-right-from-bracket logout"></i>
+								</div>
+
+							<h3>Account information</h3>
+
+								<h5>Password</h5>
+								<input type="text">
+
+								<h5>Email</h5>
+								<input type="email">
+
+								<h5>Email</h5>
+								<input type="email">
+
+								<h5>Manage Account</h5>
+								<button>Delete account</button>
+							
+								
+
+						</div>
+					</section>
+
 				</div>
 
 
@@ -446,6 +597,10 @@
 		document.querySelector('.menu-toggle').addEventListener('click', () => {
 			document.querySelector('nav').classList.toggle('open');
 			document.querySelector('.overlay').classList.toggle('open');
+		});
+
+		document.querySelector('.settings-menu .caret').addEventListener('click', () => {
+			document.querySelector('.settings-list').classList.toggle('open');
 		});
 	</script>
 </body>

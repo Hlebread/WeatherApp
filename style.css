@@ -33,10 +33,13 @@ body {
 	--font-main: #1a1a1a;
 	--font-sec: #c5c5c5;
 	--navigation-accent: #4644fd;
+	/* --navigation-accent: #fa625c; */
 
 	--cloud: #909cac;
 	--umbrella: #025393;
 	--wind: #5a7702;
+
+	--test: #afcfed;
 }
 [data-theme="dark"] {
 	/* --theme-color: #0f3057;
@@ -82,8 +85,8 @@ body {
 	width: 99%;
 	height: 99vh;
 	background: var(--side-field);
-	box-shadow: 6px 6px 16px rgba(217, 210, 210, .51),
-					-6px -6px 26px rgba(255, 255, 255, .83);
+	box-shadow:  12px 12px 31px #666666,
+	-12px -12px 31px #ffffff;
 	border-radius: 50px;
 	display: flex;
 	overflow: hidden;
@@ -149,7 +152,8 @@ nav .btn-app .fa {
 }
 nav.open .btn-app {
 	opacity: 1;
-	box-shadow: 4px 4px 2px 1px rgba(0, 0, 0, 0.2);
+	box-shadow: inset -5px -5px 10px #413feb,
+            inset 5px 5px 10px #4b49ff;
 }
 nav .menu-round {
 	position: absolute;
@@ -189,7 +193,7 @@ nav .menu-line .btn-app {
 	top: -3em;
 	right: 0.45em;
 	transition: 0.3s;
-	/* transition-delay: 0.4s; */
+	box-shadow: none;
 }
 nav.open .menu-line .btn-app {
 	right: -1.45em;
@@ -296,6 +300,15 @@ main {
 	display: flex;
 	background: var(--side-field);
 }
+.side-field .current-weather:not(.active),
+.side-field .settings-menu:not(.active),
+.main-field .today:not(.active),
+.main-field .week:not(.active), 
+.main-field .month:not(.active),
+.main-field .favorites:not(.active),
+.main-field header:not(.active) {
+	display: none;
+}
 
 
 /* 
@@ -334,7 +347,7 @@ main {
 	display: flex;
 	align-items: center;
 	width: 100%;
-	height: 100%;
+	height: 73%;
 }
 .side-field .current-weather .search-places label {
 	flex: 10 1 10%;
@@ -354,6 +367,8 @@ main {
 	background: var(--main-field);
 	cursor: pointer;
 	transition: .3s;
+	box-shadow: inset -4px -4px 8px #e8e7ea,
+					inset 4px 4px 8px #ffffff;
 }
 .side-field .current-weather .search-places .fa-crosshairs:hover {
 	transform: scale(1.1);
@@ -488,6 +503,61 @@ main {
 	grid-area: time;
 	font-size: 30px;
 	font-size: smaller;
+}
+
+
+.side-field .settings-menu {
+	flex-grow: 1;
+	position: relative;
+}
+.side-field .settings-menu h1 {
+	margin: 0;
+	color: var(--font-sec);
+}
+.side-field .settings-menu h4 {
+	display: none;
+	color: var(--font-sec);
+	margin-bottom: 15px;
+}
+.side-field .settings-menu .settings-list {
+	padding: 0;
+	margin: 0;
+}
+.side-field .settings-menu .settings-list .settings-list-item {
+	list-style: none;
+	margin: 15px 4px;
+	padding: 18px 25px;
+	cursor: pointer;
+	background: var(--main-field);
+	border-radius: 20px;
+	border-left: 5px solid transparent;
+}
+.side-field .settings-menu .settings-list .settings-list-item.checked {
+	z-index: 1;
+	border-color: tomato;
+}
+.side-field .settings-menu .settings-list.open .settings-list-item {
+	position: static;
+	transition: .5s;
+}
+.side-field .settings-menu .settings-list .settings-list-item i {
+	width: 1.5em;
+}
+.side-field .settings-menu .settings-list .caret {
+	display: none;
+	width: 45px;
+	height: 45px;
+	font-size: 30px;
+	cursor: pointer;
+	justify-content: center;
+	align-items: center;
+	top: 20px;
+	right: 0px;
+	transition: .2s;
+}
+.side-field .settings-menu .settings-list.open .caret {
+	transform: rotate(180deg);
+	top: 10px;
 
 }
 
@@ -525,7 +595,9 @@ main {
 	display: none;
 }
 .main-field .card {
-	background: #fff;
+	/* background: #f7f6f9; */
+	box-shadow: inset -5px -5px 6px #cdcccf,
+					inset 5px 5px 6px #ffffff;
 	border-radius: 20px;
 	padding: 25px;
 	display: flex;
@@ -551,13 +623,10 @@ main {
 	background: transparent !important;
 	border-radius: 5px;
 }
-.main-field .today:not(.active),
-.main-field .week:not(.active) {
-	display: none;
-}
 .main-field .today,
 .main-field .week,
-.main-field .month {
+.main-field .month,
+.main-field .favorites {
 	flex: 1 1 100%;
 	margin-top: 40px;
 	margin-left: 15px;
@@ -590,7 +659,7 @@ main {
 	overflow-x: auto;
 }
 .main-field .today .week-preview .week-preview-card:first-child {
-	margin-right: 10px;
+	margin: 0 10px;
 }
 .main-field .today .week-preview .week-preview-card + .week-preview-card {
 	margin: 0 10px;
@@ -600,6 +669,7 @@ main {
 	height: 150px;
 	padding: 10px 35px;
 	align-items: center;
+	cursor: pointer;
 }
 .main-field .today .week-preview .week-preview-card img {
 	width: 100%;
@@ -987,9 +1057,6 @@ main {
 /* 
 	*Main field when "Month" selected 
 */
-.main-field .month:not(.active) {
-	display: none;
-}
 .main-field .month {
 	display: flex;
 	flex-direction: column;
@@ -1030,6 +1097,94 @@ main {
 }
 
 
+/* 
+	*Main field when "Favorites" page selected 
+*/
+.main-field .favorites {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	margin-top: 55px;
+}
+.main-field .favorites .card {
+	flex: 0 1 22%;
+	max-height: 400px;
+	margin: 15px;
+	justify-content: space-around;
+	position: relative;
+}
+.main-field .favorites .card .delete-btn {
+	color: var(--font-sec);
+	position: absolute;
+	top: 15px;
+	right: 25px;
+	cursor: pointer;
+	transition: .2s;
+}
+.main-field .favorites .card .delete-btn:hover {
+	color: var(--font-main);
+}
+.main-field .favorites .card img {
+	width: 100%;
+	max-width: 150px;
+	margin-left: 20px;
+}
+.main-field .favorites .card > div:last-of-type,
+.main-field .favorites .card > div:first-of-type,
+.main-field .favorites .card .weather {
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+.main-field .favorites .card > div:last-child {
+	justify-content: space-between;
+}
+.main-field .favorites .card .weather {
+	font-size: 50px;
+}
+.main-field .favorites .card .weather span { 
+	margin-top: -15px;
+	font-size: 25px;
+}
+
+/* 
+	*Main field when "Settings" page selected 
+*/
+.main-field .settings {
+	overflow-y: auto;
+}
+.main-field .settings .settings-page {
+	display: flex;
+	flex-direction: column;
+}
+.main-field .settings .settings-page .user {
+	display: flex;
+	align-items: center;
+}
+.main-field .settings .settings-page .user > *:not(:last-child) {
+	margin-right: 30px;
+}
+.main-field .settings .settings-page .user img {
+	border-radius: 50%;
+	width: 100px;
+}
+.main-field .settings .settings-page .user input {
+	width: 30%;
+	padding: 25px;
+	font-size: 30px;
+	background: transparent;
+	border: none;
+	outline: none;
+}
+.main-field .settings .settings-page .user .logout {
+	width: 45px;
+	height: 45px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
 
 /* For medium+ screen */
 @media all and (max-width: 1500px){
@@ -1042,6 +1197,11 @@ main {
 									'.    .   '
 									'big  big '
 		;
+	}
+
+	.main-field .favorites .card {
+		flex: 0 1 45%;
+		height: 500px;
 	}
 }
 
@@ -1121,9 +1281,12 @@ main {
 			'detail-3 detail-3'
 		;
 	}
+	.side-field .current-weather .search-places {
+		height: 100%;
+	}
 	.side-field .current-weather .search-places label input {
 		width: 100%;
-	}	/* !!!!! */
+	}
 	.side-field .current-weather .search-places .fa-crosshairs,
 	.side-field .current-weather .location {
 		margin-right: 10%;
@@ -1145,6 +1308,32 @@ main {
 		width: 70%;
 		height: auto;
 	}
+
+
+	.side-field .settings-menu h1 {
+		margin-top: 50px;
+	}
+	.side-field .settings-menu h4 {
+		display: block;
+	}
+	.side-field .settings-menu .settings-list {
+		padding: 0;
+		position: relative;
+	}
+	.side-field .settings-menu .settings-list .settings-list-item {
+		width: 80%;
+		padding: 18px 0 18px 15px;
+		font-size: .7em;
+		position: absolute;
+	}
+	.side-field .settings-menu .settings-list .caret {
+		display: flex;
+		position: absolute;
+	}
+
+
+
+
 
 	.main-field {
 		border-radius: 50px 50px 0 0;
@@ -1169,6 +1358,14 @@ main {
 	.main-field .today .air-quality .details .detail {
 		flex-basis: 30%;
 		margin: 15px 0;
+	}
+
+	.main-field .favorites {
+		justify-content: center;
+	}
+	.main-field .favorites .card {
+		flex: 0 1 43%;
+		height: 300px;
 	}
 }
 
@@ -1216,5 +1413,17 @@ main {
 		margin: 15px 0;
 		padding: 10px 0;
 		width: 100%;
+	}
+
+	.side-field .settings-menu h1 {
+		font-size: 13vw;	
+	}
+	.side-field .settings-menu h4 {
+		font-size: 5vw;	
+	}
+
+	.main-field .favorites .card {
+		flex-grow: 1;
+		height: 300px;
 	}
 }
